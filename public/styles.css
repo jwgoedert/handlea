@@ -7,24 +7,30 @@
     padding-left: 2rem;
 }
 #section-rig{
-    color: orange;
+    background-color: #ffd400;
+    color:white;
+    height:6rem;
     /* font-style: normal; */
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     font-size: 2rem;
     padding-left:30%;
     
 }
 #section-travels{
-    color:lightskyblue;
+    background-color:lightskyblue;
+    color:white;
+    height:6rem;
     /* font-style: normal; */
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     font-size: 2rem;
     padding-left:50%;
 }
 #section-projects{
-    color: maroon;
+    background-color: maroon;
+    color:white;
+    height:6rem;
     /* font-style: normal; */
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     font-size: 2rem;
     padding-left:70%;
 }
