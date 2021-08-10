@@ -5,23 +5,35 @@
     font-style: italic;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding-left: 2rem;
+    margin: 0px;
 }
+/* .sections {
+    animation-duration: 3s;
+    animation-name: slidein;
+    @keyframes slidein {
+  from {
+    margin-left: -100%;
+    width: 100%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+} */
+
 #section-rig{
     background-color: #ffd400;
     color:white;
     height:6rem;
-    /* font-style: normal; */
-    /* background-color: aliceblue; */
     font-size: 2rem;
     padding-left:30%;
-    
 }
 #section-travels{
     background-color:lightskyblue;
     color:white;
     height:6rem;
-    /* font-style: normal; */
-    /* background-color: aliceblue; */
     font-size: 2rem;
     padding-left:50%;
 }
@@ -29,8 +41,6 @@
     background-color: maroon;
     color:white;
     height:6rem;
-    /* font-style: normal; */
-    /* background-color: aliceblue; */
     font-size: 2rem;
     padding-left:70%;
 }
