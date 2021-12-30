@@ -7,6 +7,14 @@
     padding-left: 2rem;
     margin: 0px;
 }
+.company-header {
+  font-family:'Brush Script MT', cursive;
+  color:deeppink;
+
+}
+.journal-entry{
+  padding-left:10%;
+}
 /* .sections {
     animation-duration: 3s;
     animation-name: slidein;
@@ -36,6 +44,16 @@
     height:6rem;
     font-size: 2rem;
     padding-left:50%;
+}
+/* #section-travels  */
+#writings{
+    /* background-color:lightsalmon; */
+    color:white;
+    height:4rem;
+    font-size: 2rem;
+    /* padding-left:50%; */
+    background: rgb(135,206,250);
+    background: linear-gradient(79deg, rgba(135,206,250,1) 0%, rgba(135,206,250,1) 39%, rgba(255,160,122,1) 64%);
 }
 #section-projects{
     background-color: maroon;
