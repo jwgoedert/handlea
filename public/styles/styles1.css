@@ -1,0 +1,9 @@
+.brand {
+    font-size: 3rem;
+    font-weight: 900;
+    font-style: italic;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#company-header {
+    font-size: 4rem;
+}
