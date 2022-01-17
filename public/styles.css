@@ -10,7 +10,8 @@
 .company-header {
   font-family:'Brush Script MT', cursive;
   color:deeppink;
-
+  font-size: 4rem;
+  padding-left:4rem;
 }
 .journal-entry{
   padding-left:10%;

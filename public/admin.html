@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN</title>
+</head>
+<body>
+    <!-- Add the Firebase and Cloud Firestore libraries to your app -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
+     <script src="https://unpkg.com/vue"></script>
+     <script src="https://unpkg.com/vue-firestore"></script>
+     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+     <link rel="stylesheet" href="./CSS/main.css">
+
+    <section class="section">
+      <h1 class="title">Admin</h1>
+      <h2 class="subtitle">
+        censor, reject, delete. Be the change you wanna see in the world. 
+
+      </h2>
+    </section>
+
+
+    <div class = "container" id="app">
+
+          <nav class="level">
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Flavor</p>
+                <p class="title">{{Object.keys(stressors.reduce((a,{name}) => {
+                  let key = name;
+                  a[key] = a[key] || 0;
+                  a[key]= a[key]+1;
+                  return a;
+                }, {})).length}}</p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Orders</p>
+                <p class="title">{{orders.length}}</p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Patients</p>
+                <p class="title">456K</p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Dick pics</p>
+                <p class="title">789</p>
+              </div>
+            </div>
+          </nav>
+
+          <div class="columns">
+
+
+            <div class="column">
+              <h2 class="subtitle is-3">Flavors</h2>     
+              <div class="block">
+                <div class="tag is-success is-large" v-for= "s in stressors">
+                    {{s.name}} <button @click="remove(s)" class="delete">x</button>
+                </div>
+              </div>
+
+               <div class="control">
+                  <input class="input" type="text" v-model="stressor.name" v-on:keyup.enter="add()">
+                  <br>
+                  <button class="button is-primary" @click="add()">Add new</button>
+               </div>
+
+     
+            </div>
+            <div class="column">
+              <h2 class="subtitle is-3">Orders</h2>
+
+
+                <div class="card" v-for= "o in orders">
+                  <header class="card-header">
+                    <p class="card-header-title">
+                      {{o.color}} {{o.flavor}} for {{ o.name}}
+                    </p>
+                    <button class="card-header-icon" aria-label="remove" @click="removeOrder(o)">
+                      <span class="icon">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                      </span>
+                    </button>
+                    <button class="card-header-icon" aria-label="done">
+                      <span class="icon">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                      </span>
+                    </button>
+                  </header>
+                  <div class="card-content">  
+                
+                    <div class="content">
+                      {{o.comment}}
+                      <br>
+                      <a>@{{o.name}}</a>, <time>{{ o.timestamp ? 
+                        ("0" + o.timestamp.toDate().getDate()).slice(-2) + "-" + ("0"+(o.timestamp.toDate().getMonth()+1)).slice(-2) + "-" +
+                        o.timestamp.toDate().getFullYear() + " " + ("0" + o.timestamp.toDate().getHours()).slice(-2) + ":" + ("0" + o.timestamp.toDate().getMinutes()).slice(-2) 
+                         : "-"}}</time>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+          </div>
+
+
+    </div>
+
+
+
+    <script src="main.js"></script>
+
+</body>
+</html>
