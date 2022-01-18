@@ -15,7 +15,7 @@ class Stressor {
         const users = [];
 
         try {
-            const snapshot = await db.collection("stressors").get()
+            const snapshot = await db.collection("orders").get()
             snapshot.forEach(doc => users.push({id: doc.id, ...doc.data()}))
         } catch (err) {
             console.error('Error Getting stressors: ', error);
@@ -27,11 +27,11 @@ class Stressor {
     async getCountMap() {
         let rawResults = await this.getAll();
         console.log(rawResults);
-        let result = (rawResults.reduce((a,{name}) => {
+        let result = (rawResults.reduce((a,{flavor}) => {
 
           //console.log(a);
           //console.log(name);
-          let key = name;
+          let key = flavor;
           a[key] = a[key] || 0;
           a[key]= a[key]+1;
           return a;
@@ -44,7 +44,7 @@ class Stressor {
 
 
 function drawChart() {
-
+  console.log('hit chart function');
   let s = new Stressor();
   s.getCountMap().then(v => {
       console.log(v)
@@ -79,8 +79,9 @@ firebase.initializeApp(firebaseConfig);
 // Initialize Firestore
 const db = firebase.firestore();
 
-db.collection("stressors")
+db.collection("orders")
     .onSnapshot((doc) => {
+      console.log('hit db Collection function');
         if (document.getElementById('chart_div') ){
           drawChart()
         }
@@ -110,19 +111,23 @@ app =new Vue({
         timestamp:""
       },
       showAddFlavor:false,
+      orderPlaced:false,
       stressorTypeCount: "",
       stressorCount:0
     }
   },
   methods: {
     place() {
-      console.log("order: "+ this.order)
+      console.log("order: ", this.order)
       this.order.timestamp = new Date();
-      this.$firestore.orders.add(this.order)
-      .then(()=>{
-        console.log("order placed", this.order);
-        window.location.href = "view.html"
-      })
+      if(this.checkEmptyValidation(this.order)) {
+        this.$firestore.orders.add(this.order)
+        .then(()=>{
+          console.log("order placed", this.order);
+          this.orderPlaced = true;
+          drawChart();
+        })
+      }
     },
     showAdd(){
       this.showAddFlavor = true;
@@ -142,6 +147,16 @@ app =new Vue({
     },
     removeOrder(o){
       this.$firestore.orders.doc(o['.key']).delete()
+    },
+    checkEmptyValidation(o){
+      if(!o.flavor || o.flavor == "Pick a flavor!"){
+        console.log('no flavor, YOU LOSE!!! GAME OVERRRRRRR. LOOOOOOOSER!!!!');
+        return false;
+      } 
+      return true;
+    },
+    toggleOrderPlaced(){
+      this.orderPlaced = ! this.orderPlaced;
     }
   },
   mounted(){

@@ -16,21 +16,6 @@
 .journal-entry{
   padding-left:10%;
 }
-/* .sections {
-    animation-duration: 3s;
-    animation-name: slidein;
-    @keyframes slidein {
-  from {
-    margin-left: -100%;
-    width: 100%;
-  }
-
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
-}
-} */
 
 #section-rig{
     background-color: #ffd400;
