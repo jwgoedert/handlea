@@ -11,28 +11,33 @@
   <script src="https://unpkg.com/vue"></script>
   <script src="https://unpkg.com/vue-firestore"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="../styles/styles.css">
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 
 </head>
 
 <body>
-  <section class="section">
-    <h1 class="title">Stan Dan's Plans</h1>
-    <h2 class="subtitle">
-      Catchy catch catch <strong>thought</strong>, like, good, stress balls should be.
-    </h2>
-  </section>
+  <!-- <section class="section"> -->
+    <div id="writings">
+      <!-- <h1 class="title company-header">Stan Dan's Plans</h1> -->
+      <h1 class="company-header">Stan Danley's Mood Truck</h1>
+      <h2 class="subtitle-header">
+        To bawl or have a ball that is our session.
+      </h2>
+    </div>
+  <!-- </section> -->
   <div id="app">
     <div class="columns">
       <div class="column">
         <section class="section">
           <div v-if="orderPlaced">
             <div class="container">
-              <h1 class="title">The Breakdown</h1>
+              <h1 class="title">Stan's Stats</h1>
               <h2 class="subtitle">
-                Piecs of <strong>stress</strong>unite!
+                Here's what the rest of our customers have to stress about.
               </h2>
+              <p>hover over a section to get more detail</p>
               <div id="chart_div"></div>
             </div>
           </div>
@@ -40,16 +45,15 @@
             <div class="container">
               <h1 class="title">What to do?</h1>
               <h2 class="subtitle">
-                Lorem ipsum dolor sit amet, <strong>consectetur</strong>, adipiscing elit.
+                Put the name for your order and pick or add a flavor and we'll call you when it's ready! If you don't like computers, or they stress you out, see one of our attendants in the mood truck and they'd be happy to help you!
+
               </h2>
               <p>
-                Ed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Don't let that boss, or that mean neighbor get you down, heck, don't even settle for a god or the government getting you down. Place your confidence and your order in Stan Danley's Stress Ball Stand and Mood Truck and your stresses will be squeezed away in no time!     
               </p>
-              <p>
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                laborum
+              
+              <p id="announcement">
+                <strong>Attention!</strong>Not squeezing your stress ball enough can cause solidification of the interior much like not addressing your problems can make them harder to crack as time goes on. Stress balls have been known to make people happy, laugh, less stressed, and even euphoric, they've also been known to burst on rare occasion, handle with care. 
               </p>
             </div>
           </div>
